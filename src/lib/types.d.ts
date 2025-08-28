@@ -1,8 +1,9 @@
 export interface Project {
+  id: string
   title: string
   shortDescription: string
   priority: number
-  cover: string
+  cover?: string | StaticImageData
   livePreview?: string
   githubLink?: string
   visitors?: string
@@ -10,7 +11,7 @@ export interface Project {
   githubStars?: string
   ratings?: string
   numberOfSales?: string
-  type: string
+  type?: string
   siteAge?: string
   category?: string
 }
@@ -28,4 +29,5 @@ export interface Testimonial {
   image: string
   stars: number
   createdAt: string
+  company: string
 }
