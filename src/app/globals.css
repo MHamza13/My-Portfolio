@@ -1,0 +1,261 @@
+@import 'tailwindcss';
+@import 'keen-slider/keen-slider.min.css';
+
+[data-theme='light'] {
+  --p: #ffffff;
+  --pc: #1e293b;
+  --s: #f1f5f9;
+  --sc: #334155;
+  --tc: #64748b;
+  --a: #3b82f6;
+  --n: #0f172a;
+  --t: #ffffff;
+  --b: #e2e8f0;
+  --marquee: #dbeafe;
+
+  /* for logo */
+  --gradient-start: #3b82f6;
+  --gradient-mid: #60a5fa;
+  --gradient-end: #93c5fd;
+}
+
+[data-theme='dark'] {
+  --p: #0f172a;
+  --pc: #e2e8f0;
+  --s: #1e293b;
+  --sc: #3b82f6;
+  --tc: #cbd5e1;
+  --a: #22d3ee;
+  --n: #f8fafc;
+  --t: #000000;
+  --b: #1e293b;
+  --marquee: #0c4a6e;
+
+  /* for logo */
+  --gradient-start: #22d3ee;
+  --gradient-mid: #38bdf8;
+  --gradient-end: #3b82f6;
+}
+
+[data-theme='aqua'] {
+  --p: #e0f7fa;
+  --pc: #006064;
+  --s: #b2ebf2;
+  --sc: #004d40;
+  --tc: #004a55;
+  --a: #00bcd4;
+  --n: #000;
+  --t: #ffffff;
+  --b: #80deea;
+  --marquee: #4dd0e1;
+
+  /* for logo */
+  --gradient-start: #00bcd4;
+  --gradient-mid: #26c6da;
+  --gradient-end: #ff7043;
+}
+
+[data-theme='retro'] {
+  --p: #faf3e0;
+  --pc: #5d4037;
+  --s: #ffe0b2;
+  --sc: #8d6e63;
+  --tc: #795548;
+  --a: #ff7043;
+  --n: #6d4c41;
+  --t: #ffffff;
+  --b: #ffe0b2;
+  --marquee: #ffcc80;
+
+  /* for logo */
+  --gradient-start: #ffab40;
+  --gradient-mid: #ff7043;
+  --gradient-end: #d84315;
+}
+
+@theme {
+  --color-primary: var(--p);
+  --color-primary-content: var(--pc);
+  --color-secondary: var(--s);
+  --color-secondary-content: var(--sc);
+  --color-tertiary-content: var(--tc);
+  --color-accent: var(--a);
+  --color-tab: var(--t);
+
+  --color-neutral: var(--n);
+  --color-border: var(--b);
+  --color-marquee: var(--marquee);
+  --color-tag: #ffa800;
+
+  --animate-fade-in: fade-in 0.5s ease-out 1;
+  --animate-blink: blink 0.8s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.3s ease-out 1;
+
+  --background-image-large-glow: url('../assets/images/bg-lg.svg');
+  --background-image-small-glow: url('../assets/images/bg-sm.svg');
+  --background-image-skill-gradient: linear-gradient(to right, var(--p), #062b48, var(--p));
+
+  --background-position-large-glow-position: 110% 30%;
+  --background-position-small-glow-position: 50% 600%;
+
+  --font-fira-code: Fira Code, monospace;
+  --font-inter: Inter, sans-serif;
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes fade-up {
+    0% {
+      top: 5px;
+    }
+    100% {
+      top: 0px;
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+html {
+  scroll-behavior: smooth !important;
+  scrollbar-width: none;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+body {
+  font-family: 'Fira Code', monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+  @apply bg-primary text-white;
+}
+
+.rehype-code-title {
+  @apply text-primary-content rounded-t-md bg-[#05101a] px-6 py-3 text-sm font-medium;
+}
+
+h2,
+h3 {
+  scroll-margin-top: 5.25rem;
+}
+
+section {
+  scroll-margin-top: 1.5rem;
+}
+
+/* Safari-only */
+@supports (-webkit-hyphens: none) {
+  * {
+    scroll-margin-top: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  h2,
+  h3 {
+    scroll-margin-top: 1.5rem;
+  }
+}
+
+.skills-section::before,
+.skills-section::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, transparent, var(--color-accent), transparent);
+  z-index: 10;
+}
+
+.skills-section::before {
+  top: 0;
+}
+
+.skills-section::after {
+  bottom: 0;
+}
+
+@import 'tailwindcss';
+
+.project-card {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+.project-card img {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  padding: 1px;
+  background: linear-gradient(to right, transparent, var(--color-accent), transparent);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Custom scrollbar styling for description area */
+.project-card .hide-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.project-card .hide-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-primary);
+  border-radius: 8px;
+}
+
+.project-card .hide-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 8px;
+}
+
+.project-card .hide-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent) / 80;
+}
