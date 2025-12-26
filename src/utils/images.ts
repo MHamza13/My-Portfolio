@@ -1,5 +1,5 @@
 // HeroSection
-import HeroImage from '../assets/images/hero-section.png'
+import HeroImage from '../assets/images/hero-section.webp'
 
 // Projects
 
