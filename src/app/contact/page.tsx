@@ -6,7 +6,7 @@ import Banner from '@/components/layout/Banner'
 
 const ContactPage = () => {
   return (
-    <div className="mt-16 bg-[color:var(--color-secondary)]/10">
+    <div className="mt-19 bg-[color:var(--color-secondary)]/10">
       {/* Hero Section */}
       <Banner
         page="Get in Touch"

@@ -23,7 +23,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="bg-primary/70 fixed top-0 left-0 z-50 w-full border-b border-transparent bg-clip-padding shadow-sm backdrop-blur-lg">
-        <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-4">
+        <div className="mx-auto flex h-21 max-w-[1200px] items-center justify-between px-4">
           {/* Brand Logo */}
           <Link href="/" className="group flex items-center gap-2">
             <Logo />

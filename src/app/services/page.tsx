@@ -7,7 +7,7 @@ import Banner from '@/components/layout/Banner'
 
 const ServicesPage = () => {
   return (
-    <div className="mt-24 space-y-16">
+    <div className="mt-19 space-y-16">
       <Banner
         page="Our Services"
         title="Expert Solutions for Your Business"
