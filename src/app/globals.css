@@ -1,0 +1,265 @@
+@import 'tailwindcss';
+@import 'keen-slider/keen-slider.min.css';
+/* ================= LIGHT THEME (Fresh & Modern) ================= */
+[data-theme='light'] {
+  --p: #f0f4f8; /* soft cool background */
+  --pc: #1e293b; /* primary content / dark text */
+  --s: #ffffff; /* surface / cards */
+  --sc: #334155; /* secondary content */
+  --tc: #4b5563; /* text color */
+  --a: #3b82f6; /* accent (sky blue) */
+  --n: #0f172a; /* neutral */
+  --t: #ffffff; /* text on accent */
+  --b: #e2e8f0; /* borders / secondary surface */
+  --marquee: #bae6fd; /* light sky blue for marquee */
+
+  /* logo gradient (sky blue pastel) */
+  --gradient-start: #3b82f6;
+  --gradient-mid: #60a5fa;
+  --gradient-end: #93c5fd;
+}
+
+/* ================= DARK THEME (Soft Dark – NOT Black) ================= */
+[data-theme='dark'] {
+  --p: #121212; /* deep dark / almost black */
+  --pc: #e5e7eb; /* main text */
+  --s: #1e1e1e; /* surface / cards */
+  --sc: #9ca3af; /* secondary content */
+  --tc: #b0b9c6; /* muted text */
+
+  --a: #38bdf8; /* accent (sky blue) */
+  --n: #f3f4f6;
+  --t: #0f1112;
+  --b: #1a1a1a;
+  --marquee: #0c4a6e;
+
+  /* logo gradient (sky blue shades) */
+  --gradient-start: #38bdf8;
+  --gradient-mid: #0ea5e9;
+  --gradient-end: #0284c7;
+}
+
+/* ================= AQUA THEME (Clean & Premium) ================= */
+[data-theme='aqua'] {
+  --p: #f0fdfa; /* soft mint / pastel background */
+  --pc: #064e3b; /* primary content / dark teal */
+  --s: #d9faf8; /* surface / cards */
+  --sc: #065f46; /* secondary content */
+  --tc: #0f766e; /* text color */
+  --a: #06b6d4; /* accent (vivid cyan) */
+  --n: #064e3b; /* neutral / dark accent */
+  --t: #ffffff; /* text on accent */
+  --b: #a5f3fc; /* border / secondary surface */
+  --marquee: #7dd3fc; /* soft sky blue for marquee */
+
+  /* logo gradient (fresh mint / cyan) */
+  --gradient-start: #06b6d4;
+  --gradient-mid: #22d3ee;
+  --gradient-end: #67e8f9;
+}
+
+/* ================= RETRO THEME (Warm & Aesthetic) ================= */
+[data-theme='retro'] {
+  --p: #fff8f1; /* soft cream background */
+  --pc: #5a3529; /* primary content / dark brown */
+  --s: #ffe6cc; /* surface / cards */
+  --sc: #8b4f32; /* secondary content */
+  --tc: #7f3f2f; /* text color */
+  --a: #f8715b; /* accent (coral / warm) */
+  --n: #4c1d0b; /* neutral / dark) */
+  --t: #ffffff; /* text on accent */
+  --b: #ffd6b6; /* border / secondary surface */
+  --marquee: #ffb88c; /* soft warm orange for marquee */
+
+  /* logo gradient (coral / warm retro gradient) */
+  --gradient-start: #fca5a5;
+  --gradient-mid: #f8715b;
+  --gradient-end: #ef4444;
+}
+
+@theme {
+  --color-primary: var(--p);
+  --color-primary-content: var(--pc);
+  --color-secondary: var(--s);
+  --color-secondary-content: var(--sc);
+  --color-tertiary-content: var(--tc);
+  --color-accent: var(--a);
+  --color-tab: var(--t);
+
+  --color-neutral: var(--n);
+  --color-border: var(--b);
+  --color-marquee: var(--marquee);
+  --color-tag: #ffa800;
+
+  --animate-fade-in: fade-in 0.5s ease-out 1;
+  --animate-blink: blink 0.8s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.3s ease-out 1;
+
+  --background-image-large-glow: url('../assets/images/bg-lg.svg');
+  --background-image-small-glow: url('../assets/images/bg-sm.svg');
+  --background-image-skill-gradient: linear-gradient(to right, var(--p), #062b48, var(--p));
+
+  --background-position-large-glow-position: 110% 30%;
+  --background-position-small-glow-position: 50% 600%;
+
+  --font-fira-code: Fira Code, monospace;
+  --font-inter: Inter, sans-serif;
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes fade-up {
+    0% {
+      top: 5px;
+    }
+    100% {
+      top: 0px;
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+html {
+  scroll-behavior: smooth !important;
+  scrollbar-width: none;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+body {
+  font-family: 'Fira Code', monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+  @apply bg-primary text-white;
+}
+
+.rehype-code-title {
+  @apply text-primary-content rounded-t-md bg-[#05101a] px-6 py-3 text-sm font-medium;
+}
+
+h2,
+h3 {
+  scroll-margin-top: 5.25rem;
+}
+
+section {
+  scroll-margin-top: 1.5rem;
+}
+
+/* Safari-only */
+@supports (-webkit-hyphens: none) {
+  * {
+    scroll-margin-top: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  h2,
+  h3 {
+    scroll-margin-top: 1.5rem;
+  }
+}
+
+.skills-section::before,
+.skills-section::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, transparent, var(--color-accent), transparent);
+  z-index: 10;
+}
+
+.skills-section::before {
+  top: 0;
+}
+
+.skills-section::after {
+  bottom: 0;
+}
+
+@import 'tailwindcss';
+
+.project-card {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+.project-card img {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  padding: 1px;
+  background: linear-gradient(to right, transparent, var(--color-accent), transparent);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Custom scrollbar styling for description area */
+.project-card .hide-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.project-card .hide-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-primary);
+  border-radius: 8px;
+}
+
+.project-card .hide-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 8px;
+}
+
+.project-card .hide-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent) / 80;
+}
