@@ -12,9 +12,9 @@
     "framer-motion": "^12.23.12",
     "fs": "^0.0.1-security",
     "keen-slider": "^6.8.6",
-    "next": "^15.5.2",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
+    "next": "^16.1.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "react-icons": "^5.5.0"
   },
   "devDependencies": {
